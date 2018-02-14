@@ -1,0 +1,17 @@
+<import src="../../common/bookTpl.wxml"/>
+<view class="container">
+    <view ><button type="primary" size="default"  plain="false"
+                    bindtap="publishReadBookEvent"> 发布 </button></view>
+    <scroll-view  scroll-y="true" class="page-body" bindscrolltolower="loadMore">
+
+        <block wx:for="{{userReadBookEventList}}" wx:key="item.id">
+            <template is="bookTpl" data="{{...item}}"></template>
+        </block>
+        <block wx:if="{{userReadBookEventList.length <= 0}}">
+            <view style="display:flex;flex-direction: row;">
+                <text class="show_no_log" >--您还未发布读书信息--</text>
+            </view>
+        </block>
+
+    </scroll-view>
+</view>

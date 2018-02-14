@@ -1,0 +1,25 @@
+<view class="container edit_wrap">
+<form bindsubmit="submitForm" id="123">
+    <view class="form_group">
+        <text>姓名：</text>
+        <text name="data_nick" value="{{data_nick}}">{{data_nick}}</text>
+    </view>
+    <view class="form_group">
+        <text>电话：</text>
+        <input type="text" name="data_mobile" value="{{data_mobile}}"/>
+    </view>
+
+    <view class="form_group">
+        <text>生日：</text>
+        <input type="text" name="data_birthday" value="{{data_birthday}}"/>
+    </view>
+    <view class="form_group">
+        <text>兴趣：</text>
+        <input type="text" placeholder="请填写兴趣爱好" placeholder-class="placeholder_style" name="data_interest" value="{{data_interest}}"/>
+    </view>
+    <button class="save_btn"  formType="submit">保存</button>
+    <toast hidden="{{saveToastHidden}}" bindchange="hideToast">
+    保存成功
+    </toast>
+</form>
+</view>

@@ -1,0 +1,39 @@
+<!--list-->
+<template name="bookTpl">
+    <view class="nav_section" >
+        <view class="nav_section_items" >
+            <!--image-->
+            <view class="section_image" bindtap="navigateDetail" data-id="{{id}}" style="text-align:center">
+                <block wx:if="{{bookCoverUrl}}">
+                    <image src="{{bookCoverUrl}}" mode="aspectFill"></image>
+                </block>
+                <block wx:else>
+                    <image src="../../images/book.png" mode="aspectFill" style="width:60%;height:60%"></image>
+                </block>
+            </view>
+            <!--content-->
+            <view class="section_cont" bindtap="navigateDetail" data-id="{{id}}">
+                <view class="section_cont_sub">
+                    <text>{{bookName}}</text>
+                    <text>——{{bookAuthor}}</text>
+                </view>
+
+                <view>读者：{{penName}}</view>
+                <view>开始：{{readBeginTimeStr}}</view>
+                <view>距离：1.1km</view>
+            </view>
+            <block wx:if="{{joined}}">
+                <view class="goin_btn_grey" data-id="{{id}}">已报名</view>
+            </block>
+            <block wx:else>
+                <block wx:if="{{currentUserNum >= totalUserNum}}">
+                    <view class="goin_btn_grey" data-id="{{id}}">查看</view>
+                    <image class="img_bg" src="http://h0.hucdn.com/open/201742/cbae4cef282df0c1_200x200.png"></image>
+                </block>
+                <block wx:else>
+                    <view class="goin_btn" bindtap="publishTuan" data-id="{{id}}">查看</view>
+                </block>
+            </block>
+        </view>
+    </view>
+</template>

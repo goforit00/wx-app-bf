@@ -1,0 +1,29 @@
+<import src="../../common/bookTpl.wxml"/>
+<view class="container">
+<scroll-view  scroll-y="true"  class="page-body" bindscrolltolower="loadMore">
+    <!--banner-->
+    <view class="swiper">
+        <swiper indicator-dots="true"
+                autoplay="true" interval="5000" duration="500">
+            <block wx:for-items="{{readBookUrl}}" wx:key="item.id">
+                <swiper-item>
+                    <block wx:if="{{item}}">
+                    <image src="{{item}}"  mode="aspectFill"/>
+                    </block>
+                    <block wx:else>
+                    <image src="../../images/book.png" mode="aspectFill"></image>
+                    </block>
+                </swiper-item>
+            </block>
+        </swiper>
+    </view>
+    <block wx:for="{{aroundBookEventList}}" wx:key="item.id">
+        <template is="bookTpl" data="{{...item}}"></template>
+    </block>
+    <block wx:if="{{aroundBookEventList.length <= 0}}">
+      <view >
+        <text class="show_no_log" >--暂无数据--</text>
+      </view>
+    </block>
+</scroll-view>
+</view>

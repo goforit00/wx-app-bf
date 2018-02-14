@@ -1,0 +1,47 @@
+<!--user.wxml-->
+
+<view class="container">
+
+  <view class="user_base_info user_addr_item">
+    <view class="user_avatar" bindtap='userInfo'>
+      <image src="{{userData.avatar}}"></image>
+    </view>
+    <view class="user_info" bindtap='userInfo'>
+      <text>用户名: {{userData.nick}} </text>
+    </view>
+  </view>
+
+  <view class="user_addr_manage">
+
+      <!--当评论功能有之后，开发这个功能-->
+      <!--<view class="user_addr_item">-->
+          <!--<navigator style="display: flex;"  url="../user_joined/user_joined" class="addr_sub">-->
+            <!--<view class="item-text"  >我参与的</view>-->
+            <!--<view class='blank_block' style='flex:6;'></view>-->
+            <!--<view>-->
+                 <!--<image class="arrow" src="http://h0.hucdn.com/open/201742/8ff14d980e57dca1_200x200.png"></image>-->
+            <!--</view>-->
+          <!--</navigator>-->
+      <!--</view>-->
+      <view class="user_addr_item">
+          <navigator style="display: flex;"  url="../question/question" class="addr_sub">
+            <view class="item-text"  >问题反馈</view>
+            <view class='blank_block' style='flex:6;'></view>
+            <view>
+                 <image class="arrow" src="http://h0.hucdn.com/open/201742/8ff14d980e57dca1_200x200.png"></image>
+            </view>
+          </navigator>
+      </view>
+
+      <view class="user_addr_item">
+          <navigator style="display: flex;"  url="../about_us/about_us" class="addr_sub">
+            <view class="item-text"  >关于我们</view>
+            <view class='blank_block' style='flex:6;'></view>
+            <view>
+                 <image class="arrow" src="http://h0.hucdn.com/open/201742/8ff14d980e57dca1_200x200.png"></image>
+            </view>
+          </navigator>
+      </view>
+  </view>
+<button class="save_btn"  bindtap='logInOrOut' hover-class="other-button-hover">{{curUserStatusOperate}}</button>
+</view>

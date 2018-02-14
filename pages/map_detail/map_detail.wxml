@@ -1,0 +1,88 @@
+<view class="container edit_wrap">
+
+
+    <view class="nav_top">
+        <block wx:for="{{navTopItems}}" wx:key="item">
+            <view class="{{curNavId == item.id? 'active' : ''}}" bindtap="switchTab" data-id="{{index}}">
+                <text class="nav_top_items">{{item.title}}</text>
+            </view>
+        </block>
+    </view>
+
+    <view wx:if="{{!curNavId}}">
+        <!--现有场馆-->
+        <view class="form_group">
+            <text >场馆名称：</text>
+            <input type="text" placeholder="请输入场馆名称" bindinput="doInputSportPlaceName" value="{{sportPlaceName}}" />
+        </view>
+
+        <!--<block wx:if="{{findSportPlace}}">-->
+            <!--<view class="form_group">-->
+                <!--<text>{{findSportPlace.name}}</text>-->
+            <!--</view>-->
+            <!--<view class="form_group">-->
+                <!--<image src="{{findSportPlace.imgUrl}}" mode="aspectFill"></image>-->
+            <!--</view>-->
+            <!--<view class="form_group">-->
+                <!--<picker bindchange="bindPickerChange" value="{{index}}" range="{{findSportPlaceList}}">-->
+                    <!--<view class="picker">-->
+                        <!--当前选择：{{findSportPlaceList[index]}}-->
+                    <!--</view>-->
+                <!--</picker>-->
+            <!--</view>-->
+        <!--</block>-->
+
+        <block wx:for="{{findSportPlaceList}}" wx:key="item.id">
+            <view class="nav_section">
+                <view class="nav_section_items" >
+                    <!--content-->
+                    <view class="section_cont" bindtap="doConfirmSportPlace" data-id="{{item.id}}">
+                        <view class="section_cont_sub">
+                            <text>{{item.name}}</text>
+                        </view>
+                        <!--<view class="section_cont_price">价格：{{price}}</view>-->
+                        <view>地点：{{item.address}}</view>
+                        <!--<view>距离：1.1km</view>-->
+                        <view>评分：{{item.grade}}分</view>
+                        <view>收费：{{item.charge}}分</view>
+                    </view>
+                    <!--image-->
+                    <view class="section_image" bindtap="navigateDetail" data-id="{{item.id}}">
+                        <block wx:if="{{item.imgUrl}}">
+                            <image src="{{item.imgUrl}}" mode="aspectFill"></image>
+                        </block>
+                        <block wx:else>
+                            <image src="../../images/default_pic.png" mode="aspectFill"></image>
+                        </block>
+                    </view>
+
+                </view>
+            </view>
+
+            <!--<template is="palyList" data="{{...item}}"></template>-->
+        </block>
+
+    </view>
+    <view wx:else>
+        <!--自由地点-->
+        <form bindsubmit="submitForm" id="123">
+            <view class="form_group2">
+                <text>活动地址：</text>
+                <text>{{userProvince}}-{{userCity}}</text>
+
+            </view>
+
+            <view class="form_group wrap">
+                <input type="text" placeholder="请输入详细区和街道" bindinput="doInputAddressPlace" placeholder-class="placeholder_style" value="{{sportPlaceAddress}}" />
+            </view>
+
+            <map id="map1" longitude="{{longitude}}" latitude="{{latitude}}" markers="{{markers}}" scale="14" show-location style="width: 100%; height: 300px;"></map>
+        </form>
+    </view>
+
+
+    <!--<navigator url="../publish/publish" open-type="navigateBack">确认</navigator>-->
+
+    <button class="save_btn" bindtap="confirmPlace" formType="submit">确认</button>
+
+</view>

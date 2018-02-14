@@ -1,0 +1,122 @@
+/**route.wxss**/
+.container{
+    padding:0rpx;
+    margin:0rpx;
+}
+.user_base_info{
+    width:100%;
+    height:250rpx;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size:30rpx;
+    margin:0rpx 0rpx;
+    padding:0rpx 0rpx;
+    background-color: #eee;
+    background:#14b489;
+}
+.user_base_info .user_avatar{
+    width:120rpx;
+    height:120rpx;
+    border-radius:100%; 
+    margin:0 auto;
+}
+.user_base_info .user_avatar image{
+    width:100%;
+    height:100%;
+    border-radius:100%; 
+}
+.user_base_info .user_info{
+    color:#fff;
+    line-height:60rpx;
+    font-size:30rpx;
+    justify-content:center;
+     margin:0 auto;
+}
+.user_addr_manage{
+    width:100%;
+    margin-top:30rpx;
+}
+.user_addr_manage .user_addr_title{
+    padding:10rpx 60rpx;
+    display: block;
+   justify-content:center;
+    font-size:36rpx;
+
+    
+}
+.user_addr_manage .user_addr_item{
+    width:100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    /* border-bottom:1px solid #ddd; */
+    vertical-align: middle;
+    line-height: 48rpx;
+    font-size:30rpx;
+    box-sizing:border-box;
+    position: relative;
+    background-color: #fff;
+}
+.user_addr_item  .addr_sub{
+    width:100%;
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.user_addr_item .addr_edit{
+    width:50rpx;
+    background:url(../../images/edit.png) no-repeat;
+    background-position: center;
+    background-size:100%;  
+}
+navigator{
+    /* margin:0rpx 0 20rpx; */
+    padding:30rpx 10rpx;
+    border-bottom:1px solid #eee;
+    font-size:32rpx;
+    text-align: center;
+    color:#d24a58;
+}
+
+.item-text{
+    color:#3d3d3d;
+    flex:2;
+}
+.margin_block{
+  margin:10px 0;
+  border: 10rpx, 0;
+  border-style:  #e1e1e1 1px solid;
+}
+
+.login_logout_btn{
+  background: none;
+  width: 90%;
+  color: #fff;
+  background-color: #1296db;
+  margin-top:80rpx;
+}
+
+.right_icon{
+  float: right;
+  margin-right: 5px;
+  width:  30rpx;
+  height: 30rpx;
+}
+
+.arrow{
+    width:30rpx;
+    height:30rpx;
+    position:absolute;
+    right:30rpx;
+}
+
+.save_btn{
+    width:700rpx;
+    background:#14b489;
+    font-size: 32rpx;
+    color:#fff;
+    border-radius: 10rpx;
+    margin-top:100rpx;
+}

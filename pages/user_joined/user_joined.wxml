@@ -1,0 +1,25 @@
+<!--user.wxml-->
+<import src ="../../common/index.wxml"/>
+
+
+<view class="container">
+  <view>
+    <!-- <scroll-view scroll-y="true" class="page-body" >
+     <template is="palyList" data="{{item}}" />
+    </scroll-view> -->
+    <block wx:for="{{playList}}" wx:key="item.id">
+        <template is="palyList" data="{{...item}}"></template>
+    </block>
+    <block wx:if="{{playList.length > 0}}">
+      <view style='display:flex;' class="special_text">
+        <text style='justify-content:center; color:#bbb;margin-left:27%;'>{{special_text}}</text>
+      </view>
+    </block>
+    <block wx:else>
+      <view style='display:flex;margin-top:300rpx;' class="special_text">
+        <text style='justify-content:center;color:#ddd;'>{{no_data_text}}</text>
+      </view>
+    </block>
+  </view>
+
+</view>

@@ -1,0 +1,63 @@
+
+<import src="../../common/index.wxml"/>
+<view class="container">
+    <scroll-view  scroll-y="true"  class="page-body" bindscrolltolower="loadMore">
+        <!--banner-->
+        <view class="swiper">
+            <swiper indicator-dots="{{indicatorDots}}" vertical="{{vertical}}"
+                    autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+                <block wx:for-items="{{banner_url}}" wx:key="item.id">
+                    <swiper-item>
+                        <block wx:if="{{item}}">
+                            <image src="{{item}}"  mode="aspectFill"/>
+                        </block>
+                        <block wx:else>
+                            <image src="../../images/default_pic.png" mode="aspectFill"></image>
+                        </block>
+                    </swiper-item>
+                </block>
+            </swiper>
+        </view>
+        <!--nav-->
+        <!-- <view class="nav_top">
+            <block wx:for="{{navTopItems}}" wx:key="item.id">
+            <view class="nav_top_items {{curNavId == item.id ? 'active_'+colors[index] : ''}}" bindtap="switchTab" data-index="{{index}}" data-id="{{item.id}}">
+                <image src="{{item.icon}}" mode="aspectFill"></image>
+                <text>{{item.title}}</text>
+            </view>
+            </block>
+        </view>-->
+        <block wx:for="{{sportPlaceList}}" wx:key="item.id">
+            <view class="nav_section">
+                <view class="nav_section_items" >
+                    <!--content-->
+                    <view class="section_cont" bindtap="navigateDetail" data-id="{{item.id}}">
+                        <view class="section_cont_sub">
+                            <text>{{item.name}}</text>
+                        </view>
+                        <!--<view class="section_cont_price">价格：{{price}}</view>-->
+                        <view>地点：{{item.address}}</view>
+                        <!--<view>距离：1.1km</view>-->
+                        <view>评分：{{item.grade}}分</view>
+                        <view>收费：{{item.charge}}分</view>
+                    </view>
+                    <!--image-->
+                    <view class="section_image" bindtap="navigateDetail" data-id="{{item.id}}">
+                        <block wx:if="{{item.imgUrl}}">
+                            <image src="{{item.imgUrl}}" mode="aspectFill"></image>
+                        </block>
+                        <block wx:else>
+                            <image src="../../images/default_pic.png" mode="aspectFill"></image>
+                        </block>
+                    </view>
+
+                </view>
+            </view>
+
+            <!--<template is="palyList" data="{{...item}}"></template>-->
+        </block>
+        <!-- <view>
+            <map id="map" longitude="113.324520" latitude="23.099994" scale="14"></map>
+        </view> -->
+    </scroll-view>
+</view>

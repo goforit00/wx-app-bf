@@ -1,0 +1,52 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/books/books",
+    "pages/detail/detail",
+    "pages/user/user",
+    "pages/publish/publish",
+    "pages/place/place",
+    "pages/user_publish/user_publish",
+    "pages/user_joined/user_joined",
+    "pages/question/question",
+    "pages/about_us/about_us",
+    "pages/place_detail/place_detail",
+    "pages/map_detail/map_detail",
+    "pages/user_info/user_info"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#37383c",
+    "navigationBarTitleText": "book friend",
+    "navigationBarTextStyle":"white"
+  },
+  "tabBar": {
+    "color":"#333",
+    "selectedColor":"#3d3d3d",
+    "backgroundColor":"#f6f6f7",
+    "borderStyle":"white",
+    "list": [{
+      "pagePath": "pages/index/index",
+      "text": "首页",
+      "iconPath":"images/quan.png",
+      "selectedIconPath":"images/quan_active.png"
+    }, {
+      "pagePath": "pages/books/books",
+      "text": "书架",
+      "iconPath":"images/around.png",
+      "selectedIconPath":"images/active_arr.png"
+    },{
+      "pagePath": "pages/user/user",
+      "text": "我的",
+      "iconPath":"images/usere.png",
+      "selectedIconPath":"images/user_active.png"
+    },{
+      "pagePath": "pages/publish/publish",
+      "text": "发布",
+      "iconPath":"images/usere.png",
+      "selectedIconPath":"images/user_active.png"
+    }
+    
+    ]
+  }
+}
