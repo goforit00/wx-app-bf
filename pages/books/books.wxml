@@ -1,6 +1,6 @@
 <import src="../../common/bookTpl.wxml"/>
 <view class="container">
-    <view ><button type="primary" size="default"  plain="false"
+    <view ><button class="publish-button" hover-class="other-button-hover"
                     bindtap="publishReadBookEvent"> 发布 </button></view>
     <scroll-view  scroll-y="true" class="page-body" bindscrolltolower="loadMore">
 

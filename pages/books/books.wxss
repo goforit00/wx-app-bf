@@ -209,3 +209,12 @@
     width:120rpx;
     padding-left:40rpx;
 }
+
+.publish-button{
+    width:700rpx;
+    background:#14b489;
+    font-size: 32rpx;
+    color:#fff;
+    border-radius: 10rpx;
+    margin-top:10rpx;
+}

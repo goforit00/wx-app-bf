@@ -8,13 +8,13 @@
                     <image src="{{bookCoverUrl}}" mode="aspectFill"></image>
                 </block>
                 <block wx:else>
-                    <image src="../../images/book.png" mode="aspectFill" style="width:60%;height:60%"></image>
+                    <image src="http://bf-bucket.su.bcebos.com/book_cover%2FbookTpl.png" mode="aspectFill" ></image>
                 </block>
             </view>
             <!--content-->
             <view class="section_cont" bindtap="navigateDetail" data-id="{{id}}">
                 <view class="section_cont_sub">
-                    <text>{{bookName}}</text>
+                    <text>《{{bookName}}》</text>
                     <text>——{{bookAuthor}}</text>
                 </view>
 

@@ -1,38 +1,44 @@
 var app = getApp()
 var dataCacheConf = require('../../config/dataCacheConf')
 var bookReadEventApi = require('../../api/bookReadEventApi')
+var dateUtil = require('../../utils/dateUtil')
 
 Page({
-    data:{
+    data: {
 
-        nowDate: '2017-10-21',
-        nowTime: '19:00',
-        userInfo:{},
-        bookName:"",
-        author:""
+        beginDate: '',
+        beginTime: '',
+        userInfo: {},
+        bookName: "",
+        author: "",
+        bookId: "",
+        saveToastHidden: true
     },
 
-    onLoad:function(options){
+    onLoad: function (options) {
 
-        //TODO 当前时间
-        this.nowDate= new Date().getDate()
-        this.nowTime= new Date().getTime()
+        var beginDate = dateUtil.format(new Date(), "yyyy-MM-dd")
+        var beginTime = dateUtil.format(new Date(), "hh:mm:ss")
+
+        this.setData({
+            beginDate: beginDate,
+            beginTime: beginTime
+        })
     },
 
-    onShow:function(){
-
+    onShow: function () {
         //默认去登陆
         var that = this;
         var userInfo = wx.getStorageSync(dataCacheConf.USER_INFO);
         if (!userInfo) {
             var that = this
             app.getUserInfo(function (userData) {
-                userLoginApi.userLoginApi(userData).then((res)=>{
-                    if(res && res.data){
+                userLoginApi.userLoginApi(userData).then((res) => {
+                    if (res && res.data) {
                         userInfo = res.data.data
                         wx.setStorage({
-                            key:dataCacheConf.USER_INFO,
-                            data:userInfo
+                            key: dataCacheConf.USER_INFO,
+                            data: userInfo
                         })
                         that.setData({
                             userInfo: userInfo
@@ -40,13 +46,55 @@ Page({
                     }
                 })
             })
-        }else {
+        } else {
             that.setData({
                 userInfo: userInfo
             })
         }
+    },
+
+    submitForm: function (event) {
+
+        var bookName = event.detail.value.bookName
+        var author = event.detail.value.author
+
+        var that = this
+
+        var beginDateTimeStr = that.data.beginDate + " " + that.data.beginTime
+        console.log("beginDateTimeStr:", beginDateTimeStr)
+
+        bookReadEventApi.publishUserBookReadEvent(that.data.userInfo.id, bookName, author, that.data.bookId, beginDateTimeStr).then((res) => {
+            if (res && res.data) {
+                that.setData({
+                    saveToastHidden: false
+                })
+                wx.switchTab({
+                    url: '../books/books'
+                })
+            }
+        })
+
+    },
+
+    hideToast: function () {
+        this.setData({
+            saveToastHidden: true
+        })
+    },
+
+    bindDateChange: function (event) {
+        console.log("date change:", event.detail.value)
+        this.setData({
+            nowDate: event.detail.value
+        })
+    },
+
+    bindTimeChange: function (event) {
+        console.log("time change:", event.detail.value)
+        this.setData({
+            beginTime: event.detail.value + ":00"
+        })
 
     }
-
 
 })

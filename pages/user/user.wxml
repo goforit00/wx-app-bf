@@ -4,16 +4,16 @@
 
   <view class="user_base_info user_addr_item">
     <view class="user_avatar" bindtap='userInfo'>
-      <image src="{{userData.avatar}}"></image>
+      <image src="{{userInfo.avatar}}"></image>
     </view>
     <view class="user_info" bindtap='userInfo'>
-      <text>用户名: {{userData.nick}} </text>
+      <text>用户名: {{userInfo.penName}} </text>
     </view>
   </view>
 
   <view class="user_addr_manage">
 
-      <!--当评论功能有之后，开发这个功能-->
+      <!--TODO 当评论功能有之后，开发这个功能-->
       <!--<view class="user_addr_item">-->
           <!--<navigator style="display: flex;"  url="../user_joined/user_joined" class="addr_sub">-->
             <!--<view class="item-text"  >我参与的</view>-->

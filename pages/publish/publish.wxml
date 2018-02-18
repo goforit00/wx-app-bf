@@ -1,31 +1,40 @@
 <view class="container edit_wrap">
-<form bindsubmit="submitForm" id="123">
-    <view class="form_group">
-        <text>书名：</text>
-        <input type="text" placeholder="请输入图书名字" placeholder-class="placeholder_style" name="bookName" value="{{bookName}}" />
+    <form bindsubmit="submitForm" id="123">
+        <view class="form_group">
+            <text>书名：</text>
+            <input type="text" placeholder="请输入图书名字" placeholder-class="placeholder_style" name="bookName"
+                   value="{{bookName}}"/>
 
-    </view>
-    <view class="form_group">
-        <text>作者：</text>
-        <input type="text" placeholder="请输入图书作者名称" placeholder-class="placeholder_style" name="author" value="{{author}}" />
-    </view>
-    <view class="form_group">
-        <text>开始时间：</text>
-        <view  class="wrap">
-            <picker class="time-picker" mode="date" value="{{nowDate}}"  bindchange="bindDateChange">
-             <view class="picker">
-                 {{nowDate}}
-            </view>
-            </picker>
-            <text decode="{{true}}" space="{{true}}">&nbsp;</text>
-             <picker class="time-picker" mode="time" value="{{nowTime}}"  bindchange="bindTimeChange">
-                 <view class="picker">
-                     {{nowTime}}
-                </view>
-            </picker>
         </view>
-    </view>
+        <view class="form_group">
+            <text>作者：</text>
+            <input type="text" placeholder="请输入图书作者名称" placeholder-class="placeholder_style" name="author"
+                   value="{{author}}"/>
+        </view>
+        <view class="form_group">
+            <text>开始时间：</text>
+            <view class="wrap">
+                <picker class="time-picker" mode="date" value="{{beginDate}}" start="2018-01-01" end="2018-12-31"
+                        bindchange="bindDateChange">
+                    <view class="picker">
+                        {{beginDate}}
+                    </view>
+                </picker>
+                <text decode="{{true}}" space="{{true}}">&nbsp;&nbsp;&nbsp;</text>
+                <picker class="time-picker" mode="time" value="{{beginTime}}" start="00:00:00" end="23:59:59"
+                        bindchange="bindTimeChange">
+                    <view class="picker">
+                        {{beginTime}}
+                    </view>
+                </picker>
+            </view>
 
-    <button class="save_btn"  formType="submit">确认发布</button>
-</form>
+        </view>
+
+        <button class="save_btn" formType="submit">确认发布</button>
+    </form>
+
+    <toast hidden="{{saveToastHidden}}" bindchange="hideToast">
+        <view>发布成功</view>
+    </toast>
 </view>

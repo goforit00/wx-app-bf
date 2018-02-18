@@ -59,22 +59,22 @@ function queryUserBookReadEvent(userId) {
  * @param beginTime
  * @returns {Promise}
  */
-function publishUserBookReadEvent(userId,bookName,author,bookId,beginTime) {
+function publishUserBookReadEvent(userId, bookName, author, bookId, beginTimeStr) {
 
     return new Promise((resolve, reject) => {
 
         wx.request({
-            url: serverConf.serverUri + "/service/rpc/bf/book/event/publish/" ,
+            url: serverConf.serverUri + "/service/rpc/bf/book/event/publish",
             method: "POST",
             header: {
                 'content-type': 'application/json' // 默认值
             },
             data: {
-                userId:userId,
-                bookName:bookName,
-                author:author,
-                bookId:bookId,
-                beginTime:beginTime
+                userId: userId,
+                bookName: bookName,
+                author: author,
+                bookId: bookId,
+                beginTimeStr: beginTimeStr
             },
             success: res => {
                 resolve(res);
@@ -87,5 +87,6 @@ function publishUserBookReadEvent(userId,bookName,author,bookId,beginTime) {
 
 module.exports = {
     queryAroundBookReadEvent: queryAroundBookReadEvent,
-    queryUserBookReadEvent: queryUserBookReadEvent
+    queryUserBookReadEvent: queryUserBookReadEvent,
+    publishUserBookReadEvent: publishUserBookReadEvent
 }

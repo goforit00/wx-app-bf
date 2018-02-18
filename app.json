@@ -40,11 +40,6 @@
       "text": "我的",
       "iconPath":"images/usere.png",
       "selectedIconPath":"images/user_active.png"
-    },{
-      "pagePath": "pages/publish/publish",
-      "text": "发布",
-      "iconPath":"images/usere.png",
-      "selectedIconPath":"images/user_active.png"
     }
     
     ]

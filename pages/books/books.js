@@ -62,6 +62,12 @@ Page({
         })
     },
 
+    publishReadBookEvent:function () {
+        wx.navigateTo({
+            url:'../publish/publish'
+        })
+    },
+
     //标签切换
     switchTab: function(e) {
         let id = e.currentTarget.dataset.id,
