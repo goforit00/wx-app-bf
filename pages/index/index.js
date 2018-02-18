@@ -97,9 +97,10 @@ Page({
     },
     // 跳转至详情页
     navigateDetail: function (e) {
-        wx.navigateTo({
-            url: '../detail/detail?id=' + e.currentTarget.dataset.id
-        })
+        //TODO 跳转详情页面
+        // wx.navigateTo({
+        //     url: '../detail/detail?id=' + e.currentTarget.dataset.id
+        // })
     },
     // 加载更多
     loadMore: function (e) {
