@@ -28,7 +28,6 @@ Page({
         if (!userInfo) {
             var that = this
             app.getUserInfo(function (userData) {
-                console.log("login user info:",userData)
 
                 userLoginApi.userLoginApi(userData).then((res)=>{
                     if(res && res.data){

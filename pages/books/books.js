@@ -4,6 +4,7 @@ var app = getApp()
 var fileData = require('../../utils/data.js')
 var bookReadEventApi = require('../../api/bookReadEventApi')
 var dataCacheConf = require('../../config/dataCacheConf')
+var userLoginApi = require('../../api/userApi')
 
 Page({
     // 页面初始数据
@@ -73,7 +74,6 @@ Page({
         let id = e.currentTarget.dataset.id,
             index = parseInt(e.currentTarget.dataset.index)
         this.curIndex = parseInt(e.currentTarget.dataset.index)
-        console.log(e)
         var that = this
         this.setData({
             curNavId: id,
@@ -90,9 +90,7 @@ Page({
     },
     // 加载更多
     loadMore: function (e) {
-        console.log('加载更多')
 
-        console.log("current index:",this.data.curIndex)
         var curid = this.data.curIndex
 
         if (this.data.navSectionItems[curid].length === 0) return

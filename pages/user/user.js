@@ -1,6 +1,8 @@
 //获取应用实例
 var app = getApp()
 var dataCacheConf = require('../../config/dataCacheConf')
+var userLoginApi = require('../../api/userApi')
+
 
 Page({
     // 页面初始数据

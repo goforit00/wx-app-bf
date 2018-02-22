@@ -61,7 +61,6 @@ Page({
         var that = this
 
         var beginDateTimeStr = that.data.beginDate + " " + that.data.beginTime
-        console.log("beginDateTimeStr:", beginDateTimeStr)
 
         bookReadEventApi.publishUserBookReadEvent(that.data.userInfo.id, bookName, author, that.data.bookId, beginDateTimeStr).then((res) => {
             if (res && res.data) {
@@ -83,14 +82,12 @@ Page({
     },
 
     bindDateChange: function (event) {
-        console.log("date change:", event.detail.value)
         this.setData({
             nowDate: event.detail.value
         })
     },
 
     bindTimeChange: function (event) {
-        console.log("time change:", event.detail.value)
         this.setData({
             beginTime: event.detail.value + ":00"
         })

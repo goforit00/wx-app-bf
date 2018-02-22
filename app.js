@@ -8,7 +8,6 @@ App({
   },
   getUserInfo:function(cb){
     var that = this
-    console.log("调用getUserInfo获取user")
 
     //TODO 不用这里的缓存,永远都重新调用
     //if(this.globalData.userInfo){
@@ -18,7 +17,6 @@ App({
         //调用登录接口
         wx.login({
           success: function (loginRes) {
-            console.log("loginRes:",loginRes)
 
             var code = loginRes.code
 

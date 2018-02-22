@@ -41,7 +41,6 @@ Page({
     },
 
     submitForm: function (e) {
-        console.log("submit e:",e)
         var that = this;
         that.setData({
             saveToastHidden: false
@@ -49,13 +48,17 @@ Page({
         var question = e.detail.value.question
         var userInfo = wx.getStorageSync(dataCacheConf.USER_INFO);
 
-        console.log("userId:",userInfo.id,";question:",question)
         userQuestionApi.userSubmitQuestionApi(userInfo.id, question)
+
     },
 
     hideToast: function () {
         this.setData({
             saveToastHidden: true
+        })
+
+        wx.switchTab({
+            url: '../user/user'
         })
     }
 

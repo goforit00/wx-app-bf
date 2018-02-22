@@ -13,7 +13,7 @@ function userSubmitQuestionApi(userId,question) {
                 question:question
             },
             header: {
-                'content-type': 'application/json' // 默认值
+                'content-type': 'application/json;charset=utf-8' // 默认值
             },
 
             success: res => {
