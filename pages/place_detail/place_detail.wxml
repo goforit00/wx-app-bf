@@ -4,7 +4,7 @@
     <text>{{detailData.name}}</text>
   </view>
   <view class='map_beautify' style='width:100%;height:404rpx;margin-bottom:70rpx;'>
-    <map id="map" longitude="{{detailData.longitude}}" latitude="{{detailData.latitude}}" scale="13" 
+    <map id="map" longitude="{{detailData.longitude}}" latitude="{{detailData.latitude}}" scale="13"
         markers='{{detailData.markers}}' style="width: 100%; height: 400rpx;"></map>
   </view>
 
@@ -18,11 +18,11 @@
     <view style='flex:1;width:300rpx;height:300rpx;position:fixed;right:20rpx;'>
       <image class="img_bg" style='max-width:300rpx;max-height:300rpx;border-radius:56rpx;' src='{{detailData.imgUrl}}'></image>
     </view>
-    
+
   </view>
 
     <view class='' style='position: fixed;bottom: 0;width:100%;' bindtap='publishTuan' data-id='{{detailData.id}}'>
-      <button>我要开团</button>    
+      <button>我要开团</button>
     </view>
 
 </view>

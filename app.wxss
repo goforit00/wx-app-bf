@@ -42,3 +42,13 @@ page{
 .tip_0,.tip_1,tip_2,tip3{
     display:block;
 }
+
+
+.publish-button{
+  width:700rpx;
+  background:#14b489;
+  font-size: 32rpx;
+  color:#fff;
+  border-radius: 10rpx;
+  margin-top:10rpx;
+}

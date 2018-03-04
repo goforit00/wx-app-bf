@@ -1,0 +1,78 @@
+function dateFormat(fdate,format) {
+
+    var date=getDate(fdate)
+
+    var v = "";
+    if (typeof date == "string" || typeof date != "object") {
+        return;
+    }
+    var year  = date.getFullYear();
+    var month  = date.getMonth()+1;
+    var day   = date.getDate();
+    var hour  = date.getHours();
+    var minute = date.getMinutes();
+    var second = date.getSeconds();
+    var weekDay = date.getDay();
+    var ms   = date.getMilliseconds();
+    var weekDayString = "";
+
+    if (weekDay == 1) {
+        weekDayString = "星期一";
+    } else if (weekDay == 2) {
+        weekDayString = "星期二";
+    } else if (weekDay == 3) {
+        weekDayString = "星期三";
+    } else if (weekDay == 4) {
+        weekDayString = "星期四";
+    } else if (weekDay == 5) {
+        weekDayString = "星期五";
+    } else if (weekDay == 6) {
+        weekDayString = "星期六";
+    } else if (weekDay == 7) {
+        weekDayString = "星期日";
+    }
+
+    v = format;
+    //Year
+    v = v.replace("yyyy", year);
+    v = v.replace("YYYY", year);
+    v = v.replace("yy", (year+"").substring(2,4));
+    v = v.replace("YY", (year+"").substring(2,4));
+
+    //Month
+    var monthStr = ("0"+month);
+    v = v.replace("MM", monthStr.substring(monthStr.length-2));
+
+    //Day
+    var dayStr = ("0"+day);
+    v = v.replace("dd", dayStr.substring(dayStr.length-2));
+
+    //hour
+    var hourStr = ("0"+hour);
+    v = v.replace("HH", hourStr.substring(hourStr.length-2));
+    v = v.replace("hh", hourStr.substring(hourStr.length-2));
+
+    //minute
+    var minuteStr = ("0"+minute);
+    v = v.replace("mm", minuteStr.substring(minuteStr.length-2));
+
+    //Millisecond
+    v = v.replace("sss", ms);
+    v = v.replace("SSS", ms);
+
+    //second
+    var secondStr = ("0"+second);
+    v = v.replace("ss", secondStr.substring(secondStr.length-2));
+    v = v.replace("SS", secondStr.substring(secondStr.length-2));
+
+    //weekDay
+    v = v.replace("/E/g", weekDayString);
+
+    console.log("return:",v)
+    return v;
+
+}
+
+module.exports = {
+    dateFormat: dateFormat
+};

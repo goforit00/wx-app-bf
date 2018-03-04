@@ -106,6 +106,17 @@ Page({
         wx.navigateTo({
             url:'../book/book?aid='+e.currentTarget.dataset.aid
         })
+    },
+
+    /**
+     * 跳转到读书过程的详情页面
+     */
+    showReadBookProgress:function (event) {
+        console.log("event:",event)
+        var readBookEventId=event.currentTarget.dataset.id
+        wx.navigateTo({
+            url:'../read_book_progress/read_book_progress?readBookEventId='+readBookEventId
+        })
     }
 
 })

@@ -22,18 +22,8 @@
                 <view>开始：{{readBeginTimeStr}}</view>
                 <view>距离：1.1km</view>
             </view>
-            <block wx:if="{{joined}}">
-                <view class="goin_btn_grey" data-id="{{id}}">已报名</view>
-            </block>
-            <block wx:else>
-                <block wx:if="{{currentUserNum >= totalUserNum}}">
-                    <view class="goin_btn_grey" data-id="{{id}}">查看</view>
-                    <image class="img_bg" src="http://h0.hucdn.com/open/201742/cbae4cef282df0c1_200x200.png"></image>
-                </block>
-                <block wx:else>
-                    <view class="goin_btn" bindtap="publishTuan" data-id="{{id}}">查看</view>
-                </block>
-            </block>
+            <view class="goin_btn" bindtap="showReadBookProgress" data-id="{{id}}">查看</view>
+
         </view>
     </view>
 </template>

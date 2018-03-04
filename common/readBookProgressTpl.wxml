@@ -1,0 +1,18 @@
+<!--list-->
+<wxs src="./wxs/common.wxs" module="util" />
+<template name="readBookProgressTpl">
+    <view class="nav_section" >
+        <view class="nav_section_items" >
+
+            <!--content-->
+            <view class="section_cont" bindtap="navigateDetail" data-id="{{id}}">
+
+                <view>书评：{{userNote}}</view>
+
+                <view>进度：{{readProgress}} %</view>
+
+                <view>时间：{{util.dateFormat(createdTime,'yyyy-MM-dd')}}</view>
+            </view>
+        </view>
+    </view>
+</template>

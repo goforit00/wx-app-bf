@@ -7,9 +7,15 @@
             <input type="text" name="question" value="{{question}}"/>
         </view>
 
+        <view>
+            <text>也可以提建议到我们官方邮箱：</text>
+        </view>
+        <view>
+            <text>    bookfu-bf@foxmail.com</text>
+        </view>
         <button class="save_btn" formType="submit">保存</button>
 
-        <toast hidden="{{saveToastHidden}}" bindchange="hideToast">
+        <toast hidden="{{saveToastHidden}}" duration="1000" bindchange="hideToast">
             <view>提交成功</view>
             <view>感谢您的支持</view>
         </toast>

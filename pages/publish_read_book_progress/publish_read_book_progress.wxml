@@ -1,0 +1,30 @@
+<view class="container edit_wrap">
+    <form bindsubmit="submitForm" id="123">
+        <view class="form_group">
+            <text>进度：</text>
+            <view class="wrap">
+                <picker class="time-picker" mode="selector" value="{{index}}" range="{{readProcessList}}"
+                        bindchange="bindReadProcessChange">
+                    <view class="picker">
+                        {{readProcessRateStr}}
+                    </view>
+                </picker>
+
+            </view>
+        </view>
+
+        <view class="form_group">
+            <text>评论：</text>
+            <textarea name="userNote" placeholder="请输入书评" style="width:210px; height: 150px;margin: 2px; border:1px solid black"/>
+        </view>
+
+        <button class="save_btn" formType="submit">确认发布</button>
+    </form>
+
+    <toast hidden="{{saveToastHidden}}" duration="500" bindchange="hideToast">
+        <view>发布成功</view>
+    </toast>
+</view>
+
+
+

@@ -72,82 +72,22 @@ Page({
 
     },
 
-    //标签切换
-    switchTab: function (e) {
-        let id = e.currentTarget.dataset.id,
-            index = parseInt(e.currentTarget.dataset.index)
-        this.curIndex = parseInt(e.currentTarget.dataset.index)
-        var that = this
-        this.setData({
-            curNavId: id,
-            curIndex: index,
-        });
-
-        let latitude;
-        let longitude;
-        wx.getLocation({
-            type: 'wgs84',
-            success: function (res) {
-                latitude = res.latitude
-                longitude = res.longitude
-                that.getSportsList(latitude, longitude);
-            }
+    /**
+     * 跳转到读书过程的详情页面
+     */
+    showReadBookProgress:function (event) {
+        console.log("event:",event)
+        var readBookEventId=event.currentTarget.dataset.id
+        wx.navigateTo({
+            url:'../others_read_book_progress/others_read_book_progress?readBookEventId='+readBookEventId
         })
     },
-    // 跳转至详情页
-    navigateDetail: function (e) {
-        //TODO 跳转详情页面
-        // wx.navigateTo({
-        //     url: '../detail/detail?id=' + e.currentTarget.dataset.id
-        // })
-    },
-    // 加载更多
-    loadMore: function (e) {
 
-        var curid = this.data.curIndex
-
-        if (this.data.navSectionItems[curid].length === 0) return
-
-        var that = this
-        that.data.navSectionItems[curid] = that.data.navSectionItems[curid].concat(that.data.navSectionItems[curid])
-        that.setData({
-            list: that.data.navSectionItems,
-        })
-    },
     // book
     bookTap: function (e) {
         wx.navigateTo({
             url: '../book/book?aid=' + e.currentTarget.dataset.aid
         })
-    },
-    publishTuan(e) {
-
-        var userInfo = wx.getStorageSync('userInfo');
-
-        wx.request({
-            url: 'https://www.baotuan.com:8443/sportsGroup/join', //仅为示例，并非真实的接口地址
-            data: {
-                userId: userInfo.id,
-                sportGroupId: e.currentTarget.dataset.id
-            },
-            header: {
-                'content-type': 'application/json' // 默认值
-            },
-            success: function (res) {
-                if (res.data.success === true) {
-                    wx.showToast({
-                        title: '恭喜抱团成功 ^_^',
-                        icon: 'success',
-                        duration: 2000
-                    })
-                } else {
-                    wx.showToast({
-                        title: res.data.errMsg,
-                        icon: 'success',
-                        duration: 2000
-                    })
-                }
-            }
-        })
     }
+
 })

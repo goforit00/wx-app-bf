@@ -1,18 +1,23 @@
 {
   "pages":[
+
     "pages/index/index",
     "pages/books/books",
     "pages/detail/detail",
     "pages/user/user",
     "pages/publish/publish",
+    "pages/read_book_progress/read_book_progress",
+    "pages/question/question",
+    "pages/about_us/about_us",
+    "pages/publish_read_book_progress/publish_read_book_progress",
+    "pages/others_read_book_progress/others_read_book_progress",
+
+    "pages/user_info/user_info",
     "pages/place/place",
     "pages/user_publish/user_publish",
     "pages/user_joined/user_joined",
-    "pages/question/question",
-    "pages/about_us/about_us",
     "pages/place_detail/place_detail",
-    "pages/map_detail/map_detail",
-    "pages/user_info/user_info"
+    "pages/map_detail/map_detail"
   ],
   "window":{
     "backgroundTextStyle":"light",

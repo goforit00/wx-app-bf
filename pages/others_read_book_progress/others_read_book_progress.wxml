@@ -1,0 +1,15 @@
+<import src="../../common/readBookProgressTpl.wxml"/>
+<view class="container">
+    <scroll-view  scroll-y="true" class="page-body" bindscrolltolower="loadMore">
+
+        <block wx:for="{{readBookProgressList}}" wx:key="item.id">
+            <template is="readBookProgressTpl" data="{{...item}}"></template>
+        </block>
+        <block wx:if="{{readBookProgressList.length <= 0}}">
+            <view style="display:flex;flex-direction: row;">
+                <text class="show_no_log" >--读者未发布读书进度信息--</text>
+            </view>
+        </block>
+
+    </scroll-view>
+</view>
